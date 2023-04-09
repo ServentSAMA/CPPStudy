@@ -14,13 +14,23 @@ char getYesNo();
 
 void printResp(char respToPrint);
 
+/*引用的使用*/
+
+int i = 1;
+/*参数命名后面不带&是值引用，在函数里面修改不会对全局变量做修改*/
+/*在参数命名后面加&表明传值为地址，变量修改相当于直接更改变量的地址*/
+void addOne(int& num) 
+{
+	num++;
+}
+
 
 int main(){
 
-	char resp = getYesNo();
+	cout << i << endl;
+	addOne(i);
+	cout << i << endl;
 	
-	printResp(resp);
-
 	return 0;
 }
 
